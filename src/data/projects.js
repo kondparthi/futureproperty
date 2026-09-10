@@ -1,11 +1,11 @@
 export const IMG = {
-  hillCity: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600&q=80",
-  pearlCity: "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=1600&q=80",
-  neoCity: "https://images.unsplash.com/photo-1500043357865-c6b8827edf10?w=1600&q=80",
-  srikaraHomes: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80",
-  parkHeights: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1600&q=80",
+  hillCity: "/projects/hill_city.png?w=1600&q=80",
+  pearlCity: "/projects/pearl_city.png?w=1600&q=80",
+  neoCity: "/projects/neo_city.png?w=1600&q=80",
+  srikaraHomes: "/projects/srikara_homes.png?w=1600&q=80",
+  parkHeights: "/projects/park_heights.png?w=1600&q=80",
   heroHome: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1800&q=80",
-  aboutHero: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1800&q=80",
+  aboutHero: "/projects/aboutHero.png?w=1800&q=80",
   hoembnr: "/hoembnr.png",
 };
 
