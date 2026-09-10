@@ -75,9 +75,9 @@ export default function Footer() {
 
           <div className="footer-col">
             <h4>Get In Touch</h4>
-            <p style={{ display: "flex", alignItems: "center", gap: 8 }}><Phone size={14} /> [Phone Number]</p>
-            <p style={{ display: "flex", alignItems: "center", gap: 8 }}><Mail size={14} /> [Email Address]</p>
-            <p style={{ display: "flex", alignItems: "flex-start", gap: 8 }}><MapPin size={14} style={{ marginTop: 3, flexShrink: 0 }} /> [Office Address]</p>
+            <p style={{ display: "flex", alignItems: "center", gap: 8 }}><Phone size={14} /> +91 82759 88888</p>
+            <p style={{ display: "flex", alignItems: "center", gap: 8 }}><Mail size={14} /> info@futureproperty.in</p>
+            <p style={{ display: "flex", alignItems: "flex-start", gap: 8 }}><MapPin size={14} style={{ marginTop: 3, flexShrink: 0 }} /> HIG-35, KPHB, Road no. 1, Behind Karur Vysya Bank, Phase 1, Hyderabad - 500072, Telangana State, INDIA</p>
           </div>
         </div>
 

@@ -43,21 +43,21 @@ export default function Contact() {
               <div className="contact-info-icon"><Phone size={18} /></div>
               <div>
                 <div className="h4" style={{ marginBottom: 2 }}>Call Us</div>
-                <div style={{ color: "var(--gray)", fontSize: 14 }}>[Phone Number]</div>
+                <div style={{ color: "var(--gray)", fontSize: 14 }}>+91 82759 88888</div>
               </div>
             </div>
             <div className="contact-info-row">
               <div className="contact-info-icon"><Mail size={18} /></div>
               <div>
                 <div className="h4" style={{ marginBottom: 2 }}>Email Us</div>
-                <div style={{ color: "var(--gray)", fontSize: 14 }}>[Email Address]</div>
+                <div style={{ color: "var(--gray)", fontSize: 14 }}>info@futureproperty.in</div>
               </div>
             </div>
             <div className="contact-info-row">
               <div className="contact-info-icon"><MapPin size={18} /></div>
               <div>
                 <div className="h4" style={{ marginBottom: 2 }}>Visit Us</div>
-                <div style={{ color: "var(--gray)", fontSize: 14 }}>[Office Address]</div>
+                <div style={{ color: "var(--gray)", fontSize: 14 }}>HIG-35, KPHB, Road no. 1, Behind Karur Vysya Bank, Phase 1, Hyderabad - 500072, Telangana State, INDIA</div>
               </div>
             </div>
 
