@@ -52,28 +52,42 @@ export default function Header() {
           </Link>
 
           <button className="mobile-toggle" onClick={() => setMobileOpen(true)}>
-            <Menu color={forceSolid ? "#00205A" : "#fff"} size={26} />
+            <Menu color={forceSolid ? "#fff" : "#fff"} size={26} />
           </button>
         </div>
       </header>
 
       {mobileOpen && (
-        <div className="mobile-menu">
-          <button onClick={() => setMobileOpen(false)} style={{ alignSelf: "flex-end", background: "none", border: "none" }}>
-            <X color="#fff" size={26} />
-          </button>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <div>
-            <div style={{ color: "#D8AE47", fontFamily: "Poppins", fontSize: 13, letterSpacing: 2, marginBottom: 10 }}>PROJECTS</div>
-            <div className="sub" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-              {PROJECTS.map(p => (
-                <Link key={p.slug} to={`/projects/${p.slug}`}>{p.name}</Link>
-              ))}
+        <>
+          <div
+            onClick={() => setMobileOpen(false)}
+            style={{ position: "fixed", inset: 0, background: "rgba(0,19,54,.5)", zIndex: 290 }}
+          />
+          <div className="mobile-menu">
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
+              <Link to="/" className="brand" onClick={() => setMobileOpen(false)}>
+                <img src="/fpg_logo.png" alt="Future Property Group" style={{ height: 42 }} />
+              </Link>
+              <button onClick={() => setMobileOpen(false)} style={{ background: "none", border: "none", cursor: "pointer" }}>
+                <X color="#fff" size={24} />
+              </button>
             </div>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            <div>
+              <div style={{ color: "#D8AE47", fontFamily: "Poppins", fontSize: 13, letterSpacing: 2, marginBottom: 10 }}>PROJECTS</div>
+              <div className="sub" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                {PROJECTS.map(p => (
+                  <Link key={p.slug} to={`/projects/${p.slug}`}>{p.name}</Link>
+                ))}
+              </div>
+            </div>
+            <Link to="/contact">Contact</Link>
+            <Link to="/contact" className="btn btn-primary" style={{ justifyContent: "center", marginTop: 8 }}>
+              Enquire Now
+            </Link>
           </div>
-          <Link to="/contact">Contact</Link>
-        </div>
+        </>
       )}
     </>
   );

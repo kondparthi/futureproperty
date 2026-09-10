@@ -15,7 +15,7 @@ export default function BlogPost() {
   return (
     <div>
       <section className="section" style={{ paddingTop: 150, paddingBottom: 40 }}>
-        <div className="container grid grid-2" style={{ alignItems: "start", gap: 60, gridTemplateColumns: "2fr 1fr" }}>
+        <div className="container grid grid-2 blog-layout" style={{ alignItems: "start", gap: 60 }}>
           {/* Main column */}
           <div style={{ gridColumn: "1 / span 1" }}>
             <div className="eyebrow">{post.category}</div>

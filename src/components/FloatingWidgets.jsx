@@ -60,6 +60,7 @@ export default function FloatingWidgets() {
     <>
       {/* Enquire Now — floating vertical tab, right side */}
       <button
+        className="floating-enquire"
         onClick={() => setModalOpen(true)}
         aria-label="Enquire Now"
         style={{
@@ -77,6 +78,7 @@ export default function FloatingWidgets() {
       {/* WhatsApp — floating circle, bottom left */}
       {/* NOTE: replace 910000000000 with your real WhatsApp business number */}
       <a
+        className="floating-whatsapp"
         href="https://wa.me/910000000000"
         target="_blank"
         rel="noopener noreferrer"
