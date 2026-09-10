@@ -1,14 +1,14 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Compass, Layers, TrendingUp, ArrowRight, Volume2, VolumeX, ChevronDown } from "lucide-react";
+import { ArrowRight, Volume2, VolumeX, ChevronDown } from "lucide-react";
 import { PROJECTS, IMG } from "../data/projects.js";
 import { ClosingCTA } from "../components/Sections.jsx";
 
 const WHAT_WE_DO = [
-  { icon: MapPin, title: "Thoughtful Locations", desc: "We look at where Hyderabad is growing and identify locations with strong connectivity and emerging potential.", img: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=500&q=80" },
-  { icon: Layers, title: "Considered Planning", desc: "From roads and essential infrastructure to open spaces and community amenities, every element has a role to play.", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500&q=80" },
-  { icon: Compass, title: "Distinctive Communities", desc: "Each project has its own character — shaped around its surroundings, its purpose and the people it is designed for.", img: "https://images.unsplash.com/photo-1592595896616-c37162298647?w=500&q=80" },
-  { icon: TrendingUp, title: "Long-Term Thinking", desc: "We build with today in mind, while keeping an eye on how the neighbourhood around a project will evolve.", img: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=500&q=80" },
+  { iconImg: "/icons/Thoughtful_Locations.png", title: "Thoughtful Locations", desc: "We look at where Hyderabad is growing and identify locations with strong connectivity and emerging potential.", img: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=500&q=80" },
+  { iconImg: "/icons/Considered_Planning.png", title: "Considered Planning", desc: "From roads and essential infrastructure to open spaces and community amenities, every element has a role to play.", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500&q=80" },
+  { iconImg: "/icons/Distinctive_Communities.png", title: "Distinctive Communities", desc: "Each project has its own character — shaped around its surroundings, its purpose and the people it is designed for.", img: "https://images.unsplash.com/photo-1592595896616-c37162298647?w=500&q=80" },
+  { iconImg: "/icons/Long_Term_Thinking.png", title: "Long-Term Thinking", desc: "We build with today in mind, while keeping an eye on how the neighbourhood around a project will evolve.", img: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=500&q=80" },
 ];
 
 const JOURNAL = [
@@ -157,7 +157,7 @@ export default function Home() {
               <div key={i} className="card" style={{ padding: 0, overflow: "hidden" }}>
                 <img src={w.img} alt={w.title} style={{ width: "100%", height: 190, objectFit: "cover" }} />
                 <div style={{ padding: "22px 22px 26px" }}>
-                  <w.icon size={24} color="#CB0301" strokeWidth={1.6} />
+                  <img src={w.iconImg} alt="" style={{ width: 130, height: 130, objectFit: "contain" }} />
                   <div className="h4" style={{ marginTop: 14 }}>{w.title}</div>
                   <p style={{ fontFamily: "Poppins", fontSize: 13.5, fontWeight: 300, color: "var(--gray)", lineHeight: 1.75, margin: 0 }}>{w.desc}</p>
                 </div>

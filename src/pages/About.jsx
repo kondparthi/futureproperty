@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  MapPin, PenTool, Landmark, TelescopeIcon, User, ChevronDown, ArrowRight,
-} from "lucide-react";
+import { User, ChevronDown, ArrowRight } from "lucide-react";
 import { PROJECTS, IMG } from "../data/projects.js";
 import { ClosingCTA } from "../components/Sections.jsx";
 
 const PRINCIPLES = [
-  { icon: MapPin, title: "Start With the Location", desc: "The right development begins with the right place. We look at emerging corridors around Hyderabad, their connectivity, surrounding infrastructure and the developments shaping their future. Our projects are positioned in areas where today's accessibility meets tomorrow's growth.", img: IMG.hillCity },
-  { icon: PenTool, title: "Plan With Purpose", desc: "A well-planned community is about more than its plots. Roads, green spaces, essential infrastructure, recreational areas and community amenities all contribute to how a place feels and functions. Our developments are planned with this larger picture in mind.", img: IMG.pearlCity },
-  { icon: Landmark, title: "Create a Sense of Place", desc: "Every project should have its own identity. Hill City brings together expansive green surroundings and lifestyle-oriented spaces. Pearl City takes inspiration from Hyderabad's culture and heritage to create A Little Hyderabad. Neo City is positioned as an exclusive address surrounded by the city's emerging growth.", img: IMG.neoCity },
-  { icon: TelescopeIcon, title: "Think Beyond Today", desc: "The places around our developments will continue to change. New roads, transport networks, employment centres, educational institutions and other infrastructure are shaping Hyderabad's next growth corridors. We consider this evolving landscape when choosing and developing our projects.", img: IMG.srikaraHomes },
+  { iconImg: "/icons/Start_With_the_Location.png", title: "Start With the Location", desc: "The right development begins with the right place. We look at emerging corridors around Hyderabad, their connectivity, surrounding infrastructure and the developments shaping their future. Our projects are positioned in areas where today's accessibility meets tomorrow's growth.", img: IMG.hillCity },
+  { iconImg: "/icons/Plan_With_Purpose.png", title: "Plan With Purpose", desc: "A well-planned community is about more than its plots. Roads, green spaces, essential infrastructure, recreational areas and community amenities all contribute to how a place feels and functions. Our developments are planned with this larger picture in mind.", img: IMG.pearlCity },
+  { iconImg: "/icons/Create_a_Sense_of_Place.png", title: "Create a Sense of Place", desc: "Every project should have its own identity. Hill City brings together expansive green surroundings and lifestyle-oriented spaces. Pearl City takes inspiration from Hyderabad's culture and heritage to create A Little Hyderabad. Neo City is positioned as an exclusive address surrounded by the city's emerging growth.", img: IMG.neoCity },
+  { iconImg: "/icons/Think_Beyond_Today.png", title: "Think Beyond Today", desc: "The places around our developments will continue to change. New roads, transport networks, employment centres, educational institutions and other infrastructure are shaping Hyderabad's next growth corridors. We consider this evolving landscape when choosing and developing our projects.", img: IMG.srikaraHomes },
 ];
 
 const CORE_VALUES = [
@@ -102,7 +100,7 @@ export default function About() {
                 <img src={p.img} alt={p.title} style={{ width: "100%", height: 300, objectFit: "cover", display: "block" }} />
               </div>
               <div style={{ order: i % 2 === 0 ? 2 : 1 }}>
-                <p.icon size={26} color="#CB0301" strokeWidth={1.6} />
+                <img src={p.iconImg} alt="" style={{ width: 120, height: 120, objectFit: "contain" }} />
                 <div className="h3" style={{ marginTop: 14, marginBottom: 10 }}>{p.title}</div>
                 <p style={{ fontFamily: "Poppins", fontWeight: 300, fontSize: 14, color: "var(--gray)", lineHeight: 1.85, margin: 0, maxWidth: 460 }}>{p.desc}</p>
               </div>

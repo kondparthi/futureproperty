@@ -1,41 +1,23 @@
 import React, { useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
-import {
-  ChevronRight, ChevronDown, CheckCircle2, Layers, Waves, Dumbbell, Baby,
-  PartyPopper, Timer, Flower2, CloudRain, ShieldCheck, Route, Zap, Landmark,
-  DoorOpen, Target, Sparkles, Building2, Droplets, TrendingUp, Home as HomeIcon,
-  UtensilsCrossed, Wind, ClipboardList, Trees,
-} from "lucide-react";
+import { ChevronRight, ChevronDown, CheckCircle2, Layers } from "lucide-react";
 import { getProjectBySlug, PROJECTS, IMG } from "../data/projects.js";
 import { ClosingCTA } from "../components/Sections.jsx";
 
-/* Best-effort icon per amenity/feature title, derived from keywords —
-   avoids needing a separate icon field for every item in the data file. */
-function iconFor(title) {
-  const t = title.toLowerCase();
-  if (t.includes("pool") || t.includes("tank bund") || t.includes("pond") || t.includes("water") && !t.includes("infrastructure")) return Waves;
-  if (t.includes("gym") || t.includes("sports") || t.includes("fitness")) return Dumbbell;
-  if (t.includes("kid") || t.includes("child")) return Baby;
-  if (t.includes("party") || t.includes("banquet") || t.includes("gather") || t.includes("kalavedika")) return PartyPopper;
-  if (t.includes("jog") || t.includes("track") || t.includes("cycling")) return Timer;
-  if (t.includes("garden") || t.includes("farm") || t.includes("mango") || t.includes("organic") || t.includes("landscape") || t.includes("plantation")) return Flower2;
-  if (t.includes("rain")) return CloudRain;
-  if (t.includes("security") || t.includes("compound") || t.includes("wall")) return ShieldCheck;
-  if (t.includes("road")) return Route;
-  if (t.includes("electric") || t.includes("power") || t.includes("ev charging")) return Zap;
-  if (t.includes("temple") || t.includes("heritage") || t.includes("gazebo") || t.includes("zoo")) return Landmark;
-  if (t.includes("gateway") || t.includes("entrance")) return DoorOpen;
-  if (t.includes("court") || t.includes("cricket") || t.includes("basketball") || t.includes("badminton") || t.includes("nets")) return Target;
-  if (t.includes("yoga") || t.includes("wellness")) return Sparkles;
-  if (t.includes("lift") || t.includes("structure") || t.includes("floor")) return Building2;
-  if (t.includes("stp") || t.includes("sewage") || t.includes("drainage")) return Droplets;
-  if (t.includes("invest")) return TrendingUp;
-  if (t.includes("build your own") || t.includes("luxury home")) return HomeIcon;
-  if (t.includes("kitchen") || t.includes("bath") || t.includes("interior")) return UtensilsCrossed;
-  if (t.includes("window") || t.includes("ventilation")) return Wind;
-  if (t.includes("plan")) return ClipboardList;
-  if (t.includes("zoo") || t.includes("tree")) return Trees;
-  return Sparkles;
+/* Converts an amenity/feature title into the same /icons/Title_With_Underscores.png
+   convention used on the Home and About pages — e.g. "24/7 Security" becomes
+   /icons/24_7_Security.png, "Kids' Play Area" becomes /icons/Kids_Play_Area.png.
+   If a matching PNG isn't found in public/icons/, the icon is hidden gracefully
+   rather than showing a broken image. */
+function iconImgFor(title) {
+  const clean = title
+    .replace(/[/]/g, "_")
+    .replace(/['’]/g, "")
+    .replace(/&/g, "")
+    .replace(/[^a-zA-Z0-9\s_+-]/g, "")
+    .trim()
+    .replace(/[\s-]+/g, "_");
+  return `/icons/${clean}.png`;
 }
 
 function ConnectivityListLocal({ items }) {
@@ -132,16 +114,18 @@ export default function ProjectPage() {
             <h2 className="h2 center" style={{ maxWidth: 620 }}>What {p.name} Brings Together.</h2>
             <p className="lead center" style={{ marginBottom: 40 }}>Every space designed as part of the {p.name} experience.</p>
             <div className="grid grid-4">
-              {amenities.map((a, i) => {
-                const Icon = iconFor(a.title);
-                return (
-                  <div key={i} style={{ textAlign: "center", background: "#fff", border: "1px solid var(--line)", padding: "26px 16px", borderRadius: 4 }}>
-                    <Icon size={26} color="var(--red)" strokeWidth={1.5} style={{ margin: "0 auto 12px" }} />
-                    <div style={{ fontFamily: "Playfair Display", fontSize: 14.5, color: "var(--navy)", marginBottom: 6 }}>{a.title}</div>
-                    <div style={{ fontFamily: "Poppins", fontWeight: 300, fontSize: 12, color: "var(--gray)", lineHeight: 1.6 }}>{a.desc}</div>
-                  </div>
-                );
-              })}
+              {amenities.map((a, i) => (
+                <div key={i} style={{ textAlign: "center", background: "#fff", border: "1px solid var(--line)", padding: "26px 16px", borderRadius: 4 }}>
+                  <img
+                    src={iconImgFor(a.title)}
+                    alt=""
+                    style={{ width: 100, height: 100, objectFit: "contain", margin: "0 auto 6px" }}
+                    onError={(e) => { e.currentTarget.style.display = "none"; }}
+                  />
+                  <div style={{ fontFamily: "Playfair Display", fontSize: 14.5, color: "var(--navy)", marginBottom: 6 }}>{a.title}</div>
+                  <div style={{ fontFamily: "Poppins", fontWeight: 300, fontSize: 12, color: "var(--gray)", lineHeight: 1.6 }}>{a.desc}</div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
