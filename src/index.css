@@ -234,13 +234,23 @@ button { font-family: inherit; }
 .nav a { font-family:  "Montserrat", "Poppins", sans-serif; font-size: 14px; color: #fff; position: relative; padding: 6px 0; }
 .nav a:hover { color: var(--gold); }
 .nav-dropdown { position: relative; color: #fff; font-size: 14px;}
+.nav-dropdown > span { display: inline-flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 0; }
 .nav-dropdown-menu {
-  position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-  background: #fff; box-shadow: 0 12px 28px rgba(0,0,0,.14);
-  min-width: 200px; padding: 10px 0; opacity: 0; pointer-events: none;
-  transition: opacity .18s ease; border-radius: 3px; margin-top: 14px;
+  position: absolute; top: calc(100% + 14px); left: 50%;
+  transform: translate(-50%, 8px);
+  background: #fff; box-shadow: 0 12px 28px rgba(0,0,0,.18);
+  min-width: 210px; padding: 10px 0; opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease, visibility .18s; border-radius: 4px; z-index: 250;
 }
-.nav-dropdown:hover .nav-dropdown-menu { opacity: 1; pointer-events: auto; }
+/* invisible bridge so hover isn't lost crossing the gap */
+.nav-dropdown-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -20px; height: 20px; }
+/* top arrow */
+.nav-dropdown-menu::after {
+  content: ""; position: absolute; top: -6px; left: 50%; width: 12px; height: 12px;
+  background: #fff; transform: translateX(-50%) rotate(45deg); border-radius: 2px 0 0 0;
+  box-shadow: -3px -3px 6px rgba(0,0,0,.06);
+}
+.nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; pointer-events: auto; transform: translate(-50%, 0); }
 .nav-dropdown-menu a { display: block; padding: 10px 20px; color: var(--navy) !important; font-size: 13.5px; }
 .nav-dropdown-menu a:hover { background: var(--cream); color: var(--red) !important; }
 
@@ -328,3 +338,4 @@ button { font-family: inherit; }
 @media (max-width: 980px) {
   .blog-layout { grid-template-columns: 1fr !important; }
 }
+
